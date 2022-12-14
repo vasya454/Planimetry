@@ -49,19 +49,4 @@ public class Triangle {
         }
         return output;
     }
-
-    public static void main(String[] args) {
-//        Point a = new Point(0, 0);
-//        Point b = new Point(0, 3);
-//        Point c = new Point(4, 0);
-//        Triangle abc = new Triangle(a, b, c);
-//        System.out.println(abc.getPerimeter());
-//        System.out.println(abc.getArea());
-        Generator.trianglesByPointsToFile("triangles.txt", 10);
-        ArrayList<Triangle> trs = Triangle.getFromFile("triangles.txt");
-        for (Triangle tr : trs) {
-            System.out.println("Периметр треугольника: " + tr.getPerimeter());
-            System.out.println("Площадь треугольника: " + tr.getArea());
-        }
-    }
 }

@@ -1,3 +1,7 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Segment {
     Point start, finish;
 
@@ -15,6 +19,29 @@ public class Segment {
     {
         //return start.getDistance(finish);
         return Point.getDistance(start, finish);
+    }
+
+    public static ArrayList<Segment> getFromFile(String fileName) {
+        File file = new File(fileName);
+        ArrayList<Segment> output = new ArrayList<>();
+        String str = "";
+        try {
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNext()) {
+                str += scanner.next() + " ";
+            }
+            scanner.close();
+            Scanner s = new Scanner(str.replace('.', ','));
+            while (s.hasNextDouble()) {
+                Segment segment = new Segment(new Point(s.nextDouble(), s.nextDouble()),
+                        new Point(s.nextDouble(), s.nextDouble()));
+                output.add(segment);
+            }
+            s.close();
+        } catch (Exception e) {
+            System.out.println("Something wrong");
+        }
+        return output;
     }
     
 }
