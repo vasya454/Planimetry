@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Triangle {
+public class Triangle extends Figure {
     Point one, two, three;
 
     public Triangle(Point one, Point two, Point three) {
